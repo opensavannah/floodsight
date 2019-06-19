@@ -272,7 +272,7 @@ type CameraImagesConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'CameraImage' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'CameraImage' edge in the connection."""
@@ -313,7 +313,7 @@ type CamerasConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'Camera' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'Camera' edge in the connection."""
@@ -367,7 +367,7 @@ type CameraWithLatestPhotosConnection {
   """
   The count of *all* 'CameraWithLatestPhoto' you could get from the connection.
   """
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'CameraWithLatestPhoto' edge in the connection."""
@@ -492,7 +492,7 @@ type CommunitiesConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'Community' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'Community' edge in the connection."""
@@ -797,7 +797,7 @@ type CrossingsConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'Crossing' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'Crossing' edge in the connection."""
@@ -1121,7 +1121,7 @@ type IncidentReportsConnection {
   """
   The count of *all* 'IncidentReport' you could get from the connection.
   """
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'IncidentReport' edge in the connection."""
@@ -1854,7 +1854,7 @@ type PushLogsConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'PushLog' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'PushLog' edge in the connection."""
@@ -2988,7 +2988,7 @@ type StatusAssociationsConnection {
   """
   The count of *all* 'StatusAssociation' you could get from the connection.
   """
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'StatusAssociation' edge in the connection."""
@@ -3045,7 +3045,7 @@ type StatusesConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'Status' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'Status' edge in the connection."""
@@ -3146,7 +3146,7 @@ type StatusReasonsConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'StatusReason' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'StatusReason' edge in the connection."""
@@ -3302,7 +3302,7 @@ type StatusUpdateHistoriesConnection {
   """
   The count of *all* 'StatusUpdateHistory' you could get from the connection.
   """
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'StatusUpdateHistory' edge in the connection."""
@@ -3347,7 +3347,7 @@ type StatusUpdatesConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'StatusUpdate' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'StatusUpdate' edge in the connection."""
@@ -3532,7 +3532,7 @@ type UsersConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'User' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'User' edge in the connection."""
@@ -3599,7 +3599,7 @@ type WazeFeedIncidentsConnection {
   """
   The count of *all* 'WazeFeedIncident' you could get from the connection.
   """
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'WazeFeedIncident' edge in the connection."""
@@ -3705,7 +3705,7 @@ type WazeStreetsConnection {
   pageInfo: PageInfo!
 
   """The count of *all* 'WazeStreet' you could get from the connection."""
-  totalCount: Int
+  totalCount: Int!
 }
 
 """A 'WazeStreet' edge in the connection."""

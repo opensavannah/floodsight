@@ -1,0 +1,189 @@
+service: ${env:AWS_SERVICE_NAME}
+
+plugins:
+  - serverless-content-encoding
+  - serverless-webpack
+
+custom:
+  contentEncoding:
+    minimumCompressionSize: 0
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    packager: 'yarn'
+    keepOutputDirectory: true
+  PG_ENDPOINT:
+    Fn::GetAtt:
+      - pgDB
+      - Endpoint.Address
+  GRAPHQL_ENDPOINT:
+    Fn::Join:
+      - ''
+      - - 'https://'
+        - Ref: ApiGatewayRestApi
+        - '.execute-api.'
+        - ${self:provider.region}
+        - .amazonaws.com/
+        - ${self:provider.stage}
+        - /graphql
+  false: false
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  deploymentBucket:
+    name: ${env:AWS_SERVICE_NAME}
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    BACKEND_PORT: ${env:BACKEND_PORT}
+    PG_PORT: ${env:PG_PORT}
+    PG_API_USR: ${env:PG_API_USR}
+    PG_API_PW: ${env:PG_API_PW}
+    GRAPHQL_API_USR: ${env:GRAPHQL_API_USR}
+    GRAPHQL_API_PW: ${env:GRAPHQL_API_PW}
+  region: us-east-1
+  stage: ${env:AWS_STAGE}
+
+functions:
+  graphql:
+    handler: handlers/graphqlHandler.handle
+    events:
+      - http:
+          method: post
+          path: graphql
+          cors: true
+          integration: lambda-proxy
+    environment:
+      PG_ENDPOINT: ${self:custom.PG_ENDPOINT}
+      JWT_SECRET: ${env:JWT_SECRET}
+      DISABLE_QUERY_LOG: ${env:DISABLE_QUERY_LOG}
+
+  xml:
+    handler: handlers/xmlHandler.handle
+    events:
+      - http:
+          method: get
+          path: xml
+    environment:
+      PG_ENDPOINT: ${self:custom.PG_ENDPOINT}
+
+  waze_feed:
+    handler: handlers/wazeFeedHandler.handle
+    events:
+      - http:
+          method: get
+          path: waze/feed
+    environment:
+      PG_ENDPOINT: ${self:custom.PG_ENDPOINT}
+
+  incidentreport:
+    handler: handlers/incidentReportHandler.handle
+    events:
+      - http:
+          method: post
+          path: incident/report
+          cors: true
+    environment:
+      GRAPHQL_ENDPOINT: ${self:custom.GRAPHQL_ENDPOINT}
+      GMAIL_ADDRESS: ${env:GMAIL_ADDRESS}
+      GMAIL_CLIENT_ID: ${env:GMAIL_CLIENT_ID}
+      GMAIL_CLIENT_SECRET: ${env:GMAIL_CLIENT_SECRET}
+      GMAIL_REFRESH_TOKEN: ${env:GMAIL_REFRESH_TOKEN}
+
+  emailreset:
+    handler: handlers/resetEmailHandler.handle
+    events:
+      - http:
+          method: post
+          path: email/reset
+          cors: true
+    environment:
+      PG_ENDPOINT: ${self:custom.PG_ENDPOINT}
+      JWT_SECRET: ${env:JWT_SECRET}
+      GMAIL_ADDRESS: ${env:GMAIL_ADDRESS}
+      GMAIL_CLIENT_ID: ${env:GMAIL_CLIENT_ID}
+      GMAIL_CLIENT_SECRET: ${env:GMAIL_CLIENT_SECRET}
+      GMAIL_REFRESH_TOKEN: ${env:GMAIL_REFRESH_TOKEN}
+
+  synclegacy:
+    handler: handlers/syncLegacyHandler.handle
+    timeout: 60
+    events:
+      - schedule:
+          rate: rate(5 minutes)
+          enabled: ${env:ENABLE_SYNC_LEGACY, self:custom.false}
+    environment:
+      GRAPHQL_ENDPOINT: ${self:custom.GRAPHQL_ENDPOINT}
+
+  pushNotifications:
+    handler: handlers/pushNotificationHandler.handle
+    timeout: 60
+    events:
+      - schedule:
+          rate: cron(0 12 * * ? *)
+          enabled: ${env:ENABLE_PUSH_NOTIFICATIONS, self:custom.false}
+    environment:
+      GRAPHQL_ENDPOINT: ${self:custom.GRAPHQL_ENDPOINT}
+      PG_ENDPOINT: ${self:custom.PG_ENDPOINT}
+      AWS_SERVICE_NAME: ${env:AWS_SERVICE_NAME}
+      GMAIL_ADDRESS: ${env:GMAIL_ADDRESS}
+      GMAIL_CLIENT_ID: ${env:GMAIL_CLIENT_ID}
+      GMAIL_CLIENT_SECRET: ${env:GMAIL_CLIENT_SECRET}
+      GMAIL_REFRESH_TOKEN: ${env:GMAIL_REFRESH_TOKEN}
+
+  scrapeCameras:
+    handler: handlers/cameraScrapeHandler.handle
+    timeout: 60
+    events:
+      - schedule:
+          rate: rate(5 minutes)
+          enabled: true
+    environment:
+      GRAPHQL_ENDPOINT: ${self:custom.GRAPHQL_ENDPOINT}
+      AUSTIN_DATA_APP_TOKEN: ${env:AUSTIN_DATA_APP_TOKEN}
+
+# For a pgDB inside a VPC look e.g. here:
+# http://www.stojanveselinovski.com/blog/2016/01/12/simple-postgresql-rds-cloudformation-template/
+resources:
+  Resources:
+    pgSecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Access to Postgres
+        SecurityGroupIngress:
+          - IpProtocol: tcp
+            FromPort: '5432'
+            ToPort: '5432'
+            CidrIp: 0.0.0.0/0
+
+    pgDB:
+      Type: 'AWS::RDS::DBInstance'
+      Properties:
+        DBName: 'postgres'
+        BackupRetentionPeriod: ${env:DB_BACKUP_RETENTION_PERIOD}
+        AllocatedStorage: 5
+        DBInstanceClass: 'db.t2.micro'
+        DeletionProtection: ${env:DB_DELETION_PROTECTION, self:custom.false}
+        AllowMajorVersionUpgrade: true
+        Engine: 'postgres'
+        EngineVersion: '10.6'
+        MasterUsername: ${env:PG_MASTER_USR}
+        MasterUserPassword: ${env:PG_MASTER_PW}
+        VPCSecurityGroups:
+          - Fn::GetAtt:
+            - pgSecurityGroup
+            - GroupId
+        Tags:
+          - Key: 'Name'
+            Value: 'floods'
+      DeletionPolicy: 'Snapshot'
+
+  Outputs:
+    PgEndpoint:
+      Description: 'JDBC connection string for database'
+      Value: ${self:custom.PG_ENDPOINT}
+    GraphqlEndpoint:
+      Description: 'URL of /graphql Endpoint'
+      Value: ${self:custom.GRAPHQL_ENDPOINT}

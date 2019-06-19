@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import CtxFloodsLogoDarkSvg from 'images/ctx-floods-logo-dark.svg';
+import CtxFloodsLogoDarkSvg from 'images/floodsight.png';
 import './Header.css';
 
 export default class Header extends Component {
@@ -12,7 +12,7 @@ export default class Header extends Component {
   };
 
   componentDidMount() {
-    document.title = `Central Texas Floods - Turn Around, Don't Drown`;
+    document.title = `Savannah Floods - Turn Around, Do Not Drown`;
   }
 
   render() {
@@ -22,7 +22,7 @@ export default class Header extends Component {
           <h1 className="Header__logo">
             <img
               src={CtxFloodsLogoDarkSvg}
-              alt="CTXfloods | Central Texas Floods"
+              alt="SAVfloods | Savannah Floods"
             />
             <div className="Header__title">{this.props.title}</div>
           </h1>
