@@ -1,5 +1,5 @@
-# CTXfloods-frontend
-Central Texas Floods Frontend
+# Floodsight.org
+Chatham County Citizen Flood Monitoring 
 
 - [Set Up Development Environment](#set-up-development-environment)
 - [Run Tests](#run-tests)
