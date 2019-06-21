@@ -1,0 +1,52 @@
+.DropdownFacade, .Dropdown, .SingleOptionDropdown, .duration-container {
+  height: 40px;
+  background-color: #f9f9fa;
+  border: 1px solid #d6d4dc;
+  background-size: 22px;
+  border-radius: 5px;
+  display: block;
+  position: relative;
+  overflow: hidden; }
+
+.SingleOptionDropdown {
+  padding: 10px; }
+
+.Dropdown::after {
+  font-family: "FontAwesome";
+  content: "\f078";
+  background: #5f7d8c;
+  color: #fff;
+  font-size: 1.3rem;
+  position: absolute;
+  pointer-events: none;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  width: 40px;
+  border-radius: inherit;
+  margin-left: -39px;
+  margin-top: -.7px;
+  position: absolute; }
+
+.Dropdown__select {
+  flex: 1;
+  background: transparent;
+  padding: 10px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border: 0;
+  border-radius: 0;
+  height: 40px;
+  -webkit-appearance: none;
+  width: 100%; }
+
+.duration-container {
+  padding: 2px;
+  padding-left: 10px;
+  height: 55px; }
+
+.duration-table {
+  border-spacing: 0px 0px; }
+
+.table-spacing {
+  width: 10px; }

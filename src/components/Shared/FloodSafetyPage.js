@@ -8,7 +8,7 @@ export default function FloodSafetyPage() {
       <h1>Flood Safety</h1>
       <p>
         Flash floods can get really dangerous, really fast. Following the tips below could save your life.
-        To learn more about how to stay safe, visit <a href="http://atxfloodsafety.com">atxfloodsafety.com</a>.
+
       </p>
 
       <h2>Avoid dangerous situations</h2>
@@ -41,7 +41,7 @@ export default function FloodSafetyPage() {
       <h2>If you must drive...</h2>
 
       <p>
-        About 75% of flood-related deaths in Texas occur in vehicles. Especially at night,
+        Especially at night,
         heavy rain can make it difficult to see that a road is flooded.
         All flooded roads will not be barricaded. Survivors have told us that they did not
         even see water on the road until their vehicle had stalled.
@@ -53,9 +53,6 @@ export default function FloodSafetyPage() {
       </p>
 
       <ul>
-        <li>
-          Check <a href="http://www.atxfloods.com/">atxfloods.com</a> for known, flooded roads.
-        </li>
 
         <li>Avoid low water crossings.</li>
 

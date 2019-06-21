@@ -36,15 +36,15 @@ export default function PublicHeader({ location }) {
               ? 'Header__tab--active'
               : 'Header__tab'
           }
-        >
-          <Link to="/data">Open Data</Link>
-        </li>
-        <li
-          className={
-            location.pathname.endsWith('about')
-              ? 'Header__tab--active'
-              : 'Header__tab'
-          }
+//        >
+//          <Link to="/data">Open Data</Link>
+//        </li>
+//        <li
+//          className={
+//            location.pathname.endsWith('about')
+//              ? 'Header__tab--active'
+//              : 'Header__tab'
+//          }
         >
           <Link to="/about">About</Link>
         </li>

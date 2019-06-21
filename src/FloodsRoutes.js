@@ -19,7 +19,7 @@ import AddCrossingPage from 'components/Dashboard/AddCrossingPage/AddCrossingPag
 import CrossingStatusHistoryPage from 'components/Dashboard/CrossingStatusHistoryPage/CrossingStatusHistoryPage';
 import ForgotPasswordPage from 'components/Dashboard/ForgotPasswordPage/ForgotPasswordPage';
 import ResetPasswordPage from 'components/Dashboard/ResetPasswordPage/ResetPasswordPage';
-import OpenDataPage from 'components/Shared/OpenDataPage/OpenDataPage';
+//import OpenDataPage from 'components/Shared/OpenDataPage/OpenDataPage';
 import AboutPage from 'components/Shared/AboutPage';
 import FloodSafetyPage from 'components/Shared/FloodSafetyPage';
 import WhatsNew from 'components/Shared/WhatsNew';
@@ -92,7 +92,7 @@ class FloodsRoutes extends Component {
           <Route path="/map" component={CrossingMapPageContainer} />
         </Switch>
 
-        <Route exact path="/data" component={OpenDataPage} />
+        {/* <Route exact path="/data" component={OpenDataPage} />*/}
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/flood-safety" component={FloodSafetyPage} />
         <Route exact path="/report-incident" component={ReportIncidentPage} />

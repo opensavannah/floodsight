@@ -5,11 +5,10 @@ import ContentPage from 'components/Shared/ContentPage';
 export default function AboutPage() {
   return (
     <ContentPage>
-      <h1>About CTXfloods</h1>
+      <h1>About Coastal Georgia Floodsight</h1>
       <p>
-        CTXfloods is maintained by the City of Austin Flood Early Warning System
-        (FEWS) team. FEWS monitors weather and road conditions 24 hours a day, 7
-        days a week on an on-call basis.
+        Coastal Georgia Floodsight is a 2019 project of the Code for America Fellowship Savannah, GA -- maintained by OpenSavannah.
+        Contributors: Casey Herrington, Carl Lewis
       </p>
       <p>
         We keep the map and closure information as up-to-date as possible based

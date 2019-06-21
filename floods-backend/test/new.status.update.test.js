@@ -65,8 +65,8 @@ function shouldWork(
               humanAddress: "Near the barn"
               description: "Describe!"
               communityId: 1
-              longitude: "-97.755996"
-              latitude: "30.30718"
+              longitude: "-81.088572"
+              latitude: "32.063111"
             }) {
               crossing {
                 id
@@ -110,8 +110,8 @@ function shouldWork(
               humanAddress: "Near the barn"
               description: "Describe!"
               communityId: 1
-              longitude: "-97.755996"
-              latitude: "30.30718"
+              longitude: "-81.088572"
+              latitude: "32.063111"
             }) {
               crossing {
                 id

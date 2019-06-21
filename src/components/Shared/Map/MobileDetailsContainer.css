@@ -1,0 +1,12 @@
+.MobileDetails__container {
+  padding-top: 10px; }
+  .MobileDetails__container .CrossingListItem__details-item {
+    display: flex; }
+  .MobileDetails__container .CrossingListItem__details-item-title {
+    width: 8rem;
+    text-align: left;
+    flex-shrink: 0; }
+  .MobileDetails__container .CrossingListItem__details-item-children {
+    text-align: left;
+    font-weight: 400;
+    font-size: 1.4rem; }

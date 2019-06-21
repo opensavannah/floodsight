@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import CtxFloodsLogoDarkSvg from 'images/floodsight.png';
+import CtxFloodsLogoDarkSvg from 'images/floodsight-coastalga.png';
 import './Header.css';
 
 export default class Header extends Component {
