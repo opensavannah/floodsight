@@ -1,0 +1,17 @@
+.ManageUsers {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.ManageUsers__h1 {
+  font-size: 4.4rem;
+  margin: 10px 0px;
+}
+
+.ManageUsers__right-aligned-element {
+  flex: 1;
+  align-self: center;
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}

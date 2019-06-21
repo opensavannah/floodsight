@@ -1,0 +1,119 @@
+@import 'css/mixins/colors';
+
+.Header {
+  padding: 0 2rem;
+  flex: none;
+  background: #111d23;
+  color: $color-white;
+  a {
+    color: $color-white;
+  }
+}
+
+.Header__logo {
+  padding: 0;
+  margin: 1rem 0;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header__logo img {
+  height: 50px;
+}
+.Header__title {
+  padding: 0 2rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.Header__small-text {
+  display: flex;
+  font-size: 1rem;
+  color: $color-white;
+  align-items: center;
+}
+
+.Header__main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Header__link-icon {
+  height: 1rem;
+}
+
+.Header__logo.smallsize {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.Header__logo-container.smallsize {
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.Header__tabs {
+  display: flex;
+  flex: 1;
+  align-self: center;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-self: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.Header__tab,
+.Header__tab--active {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-bottom: 7px solid #111d23;
+  display: flex;
+  align-items: center;
+  a {
+    text-decoration: none;
+  }
+  &:first-child {
+    padding-left: 0;
+  }
+}
+.Header__tab--active {
+  border-bottom-color: #03a9f4;
+}
+
+.Header .Header__tab--active a {
+  color: #03a9f4;
+}
+
+
+@media (max-width: 600px) {
+  .Header__logo img {
+    height: 25px;
+  }
+  .Header__title {
+    display: none;
+  }
+  .Header__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .Header__tabs {
+    font-size: 8px;
+  }
+  .Header__tab, .Header__tab--active  {
+    font-size: 1.3rem;
+    border-bottom-width: 4px;
+  }
+}

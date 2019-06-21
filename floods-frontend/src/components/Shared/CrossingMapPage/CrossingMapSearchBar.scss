@@ -1,0 +1,138 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+.CrossingMapSearchBar__header {
+  background: #2c579b;
+  color: white;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  letter-spacing: 0.11em;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .CrossingMapSearchBar__header {
+    font-size: 1rem;
+  }
+}
+
+.CrossingMapSearchBar__container {
+  background: #3b77bd;
+  display: flex;
+  flex-direction: column;
+  min-height: 0px; //Required for scrolling to work on child flex elements
+}
+
+@media (max-width: 600px) {
+  .CrossingMapSearchBar__container {
+    min-height: auto;
+  }
+}
+
+.CrossingMapSearchBar__location-icon {
+  padding-left: 20px;
+  padding-top: 13px;
+}
+
+.CrossingMapSearchBar__glass-icon {
+  padding-top: 13px;
+  padding-right: 10px;
+}
+
+.CrossingMapSearchBar__cancel-icon {
+  float: right;
+}
+
+.CrossingMapSearchBar__text-entry {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0px; //Required for scrolling to work on child flex elements
+}
+
+.CrossingMapSearchBar__close-selection {
+  text-align: right;
+  background: white;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.react-autosuggest__input {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: black;
+  margin-left: 5%;
+  border: 8px solid white;
+  border-radius: 5px;
+  width: 90%;
+  @include placeholder {
+    color: black;
+  }
+}
+
+.react-autosuggest__container {
+  display: flex;
+  flex-direction: column;
+  min-height: 0px; //Required for scrolling to work on child flex elements
+
+  ul {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.react-autosuggest__suggestions-container {
+  color: black;
+  background: #f8f8f9;
+  border-top: 10px solid #3b77bd;
+  overflow-y: auto;
+}
+
+.CrossingMapSearchBar__suggestion-container {
+  display: flex;
+  background: white;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  min-height: 50px;
+}
+
+.CrossingMapSearchBar__suggestion-icon {
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+.CrossingMapSearchBar__suggestion-text--primary {
+  padding-left: 10px;
+  padding-top: 6px;
+  font-size: 1.5rem;
+}
+
+.CrossingMapSearchBar__suggestion-text--secondary {
+  padding-left: 10px;
+  font-size: 1.2rem;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  .CrossingMapSearchBar__suggestion-container {
+    background: #f8f8f9;
+  }
+  background: black;
+}

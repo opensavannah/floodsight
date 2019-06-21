@@ -1,0 +1,93 @@
+@import 'css/mixins/colors';
+
+
+@media (min-width: 800px) {
+  .CrossingDetails {
+    padding: 2rem 4rem;
+  }
+  .CrossingDetails__communities-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  .CrossingDetails__details-container {
+    display: flex;
+  }
+  .CrossingDetails__details {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    margin-right: 2rem;
+  }
+  .CrossingDetails__aside {
+    margin-left: 2rem;
+    flex-basis: 200px;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 800px) {
+  .CrossingDetails {
+    padding: 2rem;
+  }
+}
+
+
+.CrossingDetails__addCommunityButtons {
+  margin-top: 10px;
+}
+.CrossingDetails__addCommunityButtons .Shared__button--primary {
+  margin-right: 1rem;
+}
+
+.CrossingDetails__buttons {
+  margin: 2rem 0;
+}
+
+.CrossingDetails__buttons .Shared__button--primary {
+  margin-right: 2rem;
+}
+
+
+.CrossingDetails__field-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.CrossingDetails__details .Shared__text-input {
+  flex: 1;
+}
+
+.CrossingDetails__archived {
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: #fffaae;
+  border: 1px solid #ffbe06;
+  border-radius: 5px;
+}
+.CrossingDetails__archived-icon {
+  margin-right: 1rem;
+}
+
+.space_5 {
+  width: 5%;
+  display: inline-block;
+}
+
+.CrossingDetails__lat-lng-container {
+  width: 47.5%;
+  display: inline-block;
+}
+
+.CrossingDetails__lat-lng-group {
+  @extend .CrossingDetails__field-group;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,77 @@
+.CrossingMapPage__map-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.CrossingMapPage__mobile-status-filters {
+  display: flex;
+  background: #2c579b;
+  padding: 0.6rem;
+  height: 3rem;
+}
+
+.CrossingMapPage__map-container--hidden {
+  display: none;
+}
+
+.CrossingMapPage__mobile-overlay {
+  width: 100%;
+
+  .CrossingListItem {
+    box-shadow: none;
+    margin-bottom: 0px;
+  }
+
+  .CrossingListItem--dirty {
+    outline: none;
+    box-shadow: 0 4px #40b3ff inset, 0 -4px #40b3ff inset;
+  }
+}
+
+.CrossingMapPage__fullscreen-toggle-container {
+  position: absolute;
+  z-index: 1;
+  text-align: right;
+  top: 10px;
+  right: 10px;
+}
+
+.CrossingMapPage__fullscreen-toggle {
+  background: white;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.CrossingMapPage__page-container {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0px; // Required for map UI to work on non-chrome browsers
+}
+
+.fullscreen {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.CrossingMapPage {
+  flex: auto;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 100%;
+}
+
+@media (max-width: 860px) {
+  .CrossingMapPage {
+    flex-direction: column;
+  }
+}
+
+.mapboxgl-map {
+  flex: auto;
+}

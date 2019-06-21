@@ -1,0 +1,39 @@
+@import 'css/global/forms';
+@import 'css/global/flexbox';
+@import 'css/global/typography';
+@import 'css/global/layout';
+@import 'css/global/colors';
+@import 'css/global/map';
+@import 'css/mixins/colors';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #efefef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.RootContainer {
+  height: 100%;
+}
+
+.FloodsApp {
+  margin: 0 auto;
+  height: 100%; //previously calc(100% - 1px)
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+$gray-background: #fff;

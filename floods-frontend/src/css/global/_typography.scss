@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
+@import 'css/font-awesome/font-awesome.scss';
+
+@import 'css/mixins/colors';
+@import 'css/mixins/typography';
+
+html {
+  font-family: $font-sans;
+  font-size: $em-base;
+  font-weight: $font-normal;
+  line-height: 1.5;
+}
+
+p,
+span {
+  font-size: $base-font-size;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.light {
+  font-weight: 300;
+}

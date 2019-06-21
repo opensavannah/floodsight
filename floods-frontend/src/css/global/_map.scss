@@ -1,0 +1,5 @@
+// For some reason the blue shadow is offset by 2px
+.mapboxgl-user-location-dot:after {
+  left: -2px;
+  top: -2px;
+}

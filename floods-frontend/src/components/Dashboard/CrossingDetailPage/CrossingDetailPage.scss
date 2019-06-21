@@ -1,0 +1,41 @@
+.AddCrossingPage,
+.CrossingDetailPage {
+  background: #fff;
+}
+
+// CrossingDetailPage is already in block display, so it doesn't need this hack
+.AddCrossingPage .CrossingDetails__container .CrossingDetails {
+  overflow: scroll;
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .AddCrossingPage {
+    display: flex;
+    flex: 1;
+  }
+  .CrossingDetails__container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+  .CrossingStaticMap {
+    flex: 1;
+  }
+  .CrossingDetails {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .CrossingDetails__container {
+  }
+  .CrossingDetails {
+  }
+  .CrossingStaticMap {
+    height: 400px;
+    max-height: 60vh;
+  }
+}

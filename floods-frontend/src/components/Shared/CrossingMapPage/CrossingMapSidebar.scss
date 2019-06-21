@@ -1,0 +1,135 @@
+.CrossingMapSidebar__overlay-container {
+  display: flex;
+  z-index: 2;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.CrossingMapSidebar__content {
+  background: #f8f8f9;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+
+  .CrossingListItem {
+    margin-bottom: 0px;
+  }
+
+  .CrossingListItem--dirty {
+    outline: none;
+    box-shadow: 0 4px #40b3ff inset, 0 -4px #40b3ff inset;
+  }
+}
+
+.CrossingMapSidebar__content-noscroll {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.CrossingMapSidebar__content-noscroll--searchFocused {
+  min-height: 0px; //Required for scrolling to work on child flex elements
+  flex-shrink: 1;
+}
+
+.CrossingMapSidebar__content-scroll {
+  overflow-y: auto;
+}
+
+.CrossingMapPage_sidebar-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 0px 5px 5px 0px;
+  border-left: none;
+  position: absolute;
+  z-index: 1000;
+  margin-top: 28px;
+}
+
+.CrossingMapPage_sidebar-filter-sort-toggle-container {
+  background: #3b77bd;
+  display: flex;
+  color: #fff;
+  flex-direction: row;
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.CrossingMapPage_sidebar-filter-toggle {
+  display: flex;
+  flex: 1;
+  padding: 5px 20px;
+  text-transform: uppercase;
+}
+
+.CrossingMapPage_sidebar-filter-toggle-icon {
+  padding-right: 5px;
+}
+.CrossingMapPage_sidebar-sort-toggle-icon {
+  padding-left: 5px;
+}
+
+.CrossingMapPage_sidebar-sort-toggle {
+  padding: 5px 20px;
+  text-transform: uppercase;
+}
+
+.CrossingMapPage_sidebar-filter {
+  color: white;
+  padding: 10px 0;
+  margin: 0 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.CrossingMapPage_sidebar-filter-container {
+  background: #2c579b;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.CrossingMapPage_sidebar-nearby-history-toggle {
+  background: #009ff2;
+  display: flex;
+  height: 45px;
+  color: #7fa8cb;
+  font-size: 1.7rem;
+  line-height: 3.7rem;
+  text-align: center;
+}
+
+.CrossingMapPage_sidebar-nearby-tab {
+  flex: auto;
+  background: #004d90;
+  height: 37px;
+}
+
+.CrossingMapPage_sidebar-history-tab {
+  flex: auto;
+  background: #004d90;
+  height: 37px;
+}
+
+.CrossingMapPage_sidebar-nearby-tab.selected {
+  background: #009ff2;
+  color: white;
+}
+
+.CrossingMapPage_sidebar-history-tab.selected {
+  background: #009ff2;
+  color: white;
+}
+
+.CrossingMapPage_sidebar-crossing-status-history .ReactVirtualized__Grid {
+  overflow: unset !important; // Fix strange scrolling behavior for history on sidebar
+}
