@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  floods-frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+
+#  flood-backend:
+#    container_name: backend
+#    build:
+#      context: ./floods-backend
+#      dockerfile: Dockerfile
+#    volumes:
+#      - './floods-backend/.:/app'
+#      - '/app/node_modules'
+#    ports:
+#      - '5001:5000'
+#    environment:
+#      - NODE_ENV=development
