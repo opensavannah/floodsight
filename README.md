@@ -12,7 +12,7 @@ Chatham County Citizen Flood Monitoring
 
 👯 Clone the repo
 ```
-git clone https://github.com/cityofaustin/ctxfloods
+git clone https://github.com/opensavannah/floodsight
 cd ctxfloods
 yarn install
 ```
@@ -22,7 +22,7 @@ yarn install
 yarn start-local
 ```
 
-💾 Clone and install [CTXFloods-backend](https://github.com/cityofaustin/ctxfloods-backend)
+💾 Clone and install [Floodshight-backend](https://github.com/opensavannah/floodsight-backend)
 
 🥂 Cheers! The frontend should now be up and running! Have fun clicking around!
 
